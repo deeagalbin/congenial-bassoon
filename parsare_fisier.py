@@ -37,10 +37,6 @@ def graf(data, legaturi):
     return graf
 
 
-#graf = graf(data, legatura)
-#print("graful este : ", graf)
-
-
 def adjencecy_matrix(data, legatura):
     n = len(data)
     matrix = [[0 for i in range(n)] for j in range(n)]
@@ -53,4 +49,4 @@ def adjencecy_matrix(data, legatura):
 
 
 matrix = adjencecy_matrix(data, legatura)
-#print(matrix)
+
