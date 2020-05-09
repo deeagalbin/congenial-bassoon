@@ -2,7 +2,8 @@ def read_data():
     data = []
     found = 0
     matrix = []
-    with open("karate.txt", "r") as file:
+    fisier = input("introduceti fisierul de intrare:")
+    with open(fisier, "r") as file:
         lines = file.readlines()
         for line in lines:
             line = line.strip()
@@ -20,8 +21,10 @@ def read_data():
 
 
 data, legatura = read_data()
-#print(legatura)
-#print(data)
+
+
+# print(legatura)
+# print(data)
 
 def graf(data, legaturi):
     graf = []
@@ -49,4 +52,3 @@ def adjencecy_matrix(data, legatura):
 
 
 matrix = adjencecy_matrix(data, legatura)
-

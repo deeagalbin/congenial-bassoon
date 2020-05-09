@@ -33,3 +33,4 @@ def generare_vecin(comunitati):
                 comunitati[nr_comunitate].append(nod)
         nr_comunitate_noua = randint(0, lungime_comunitati - 1)
     return comunitati
+
