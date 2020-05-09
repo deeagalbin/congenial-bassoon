@@ -9,6 +9,9 @@ data, legaturi = read_data()
 graf = graf(data, legaturi)
 
 
+#Algoritmul de Simulated Annealing
+#Input: max_iteratii- nr. max de iteratii, temp- temp initiala, alpha- rata de racire, min_temp- temp. de inghet
+#Output: o solutie mai buna decat cea initiala
 def simulated_annealing(max_iteratii, temp, alpha, min_temp):
     solutie = communities_graph(graf, data)
     print("com initiale sunt: " + str(solutie))
@@ -36,13 +39,19 @@ def simulated_annealing(max_iteratii, temp, alpha, min_temp):
     return solutie, eval_solutie(solutie)
 
 
+#Imbunatatirea solutiei finale, a.i. sa eliminam comunitatile formate dintr-un singur nod
+#Input: comunitatile
+#Outpu: comunitatile "reorganizate"
 def imbunatire_solutie(solutie):
     n = len(solutie)
     i = 0
+    #iteram prin lista cu comunitati
     while i < n:
+        #verificam daca comunitatea are un singur element
         if (len(solutie[i]) == 1):
             pus_in_comunitate = 0
             k = 0
+            #cautam o comunitate potrivita pentru elementul unic
             while pus_in_comunitate == 0 and k < n:
                 if potrivit_comunitate(solutie[i][0], solutie[k]) == 1:
                     solutie[k].append(solutie[i][0])
