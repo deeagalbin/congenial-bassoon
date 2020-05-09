@@ -1,4 +1,6 @@
 def read_data():
+    #citim noduriile ca data
+    #citim matrix-ca legaturi
     data = []
     found = 0
     matrix = []
@@ -27,6 +29,9 @@ data, legatura = read_data()
 # print(data)
 
 def graf(data, legaturi):
+    #data-noduriile
+    #legaturi-legaturiile dintre noduri
+    #returnam un o lista de liste care are ca indice nodul-1 si ca elemente in ea toate noduriile cu care acesta are legaturi
     graf = []
     lista_legatura = []
     for nod in data:
@@ -41,6 +46,11 @@ def graf(data, legaturi):
 
 
 def adjencecy_matrix(data, legatura):
+    #construim matricea de adiacenta
+    #data-noduriile
+    #legatura-legaturiile dintre noduri
+    #indicii in matrice pornesc de la zero de aceea conditia ca 2 noduri sa aiba legatura:nod1,nod2 e ca matrix[nod1-][nod2-1] sa fie 1
+    #matricea construita este simetrica fata de diagonala principala(care va fi 0)
     n = len(data)
     matrix = [[0 for i in range(n)] for j in range(n)]
     for k in legatura:
