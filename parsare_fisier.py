@@ -2,8 +2,8 @@ def read_data():
     data = []
     found = 0
     matrix = []
-    fisier = input("introduceti fisierul de intrare:")
-    #fisier = "delfini.txt"
+    # fisier = input("introduceti fisierul de intrare:")
+    fisier = "delfini.txt"
     with open(fisier, "r") as file:
         lines = file.readlines()
         for line in lines:
