@@ -1,4 +1,6 @@
 def read_data():
+    #citim noduriile ca data
+    #citim matrix-ca legaturi
     data = []
     found = 0
     matrix = []
@@ -24,10 +26,11 @@ def read_data():
 data, legatura = read_data()
 
 
-# print(legatura)
-# print(data)
 
 def graf(data, legaturi):
+    #data-noduriile
+    #legaturi-legaturiile dintre noduri
+    #returnam un o lista de liste care are ca indice nodul-1 si ca elemente in ea toate noduriile cu care acesta are legaturi
     graf = []
     lista_legatura = []
     for nod in data:
@@ -42,6 +45,9 @@ def graf(data, legaturi):
 
 
 def adjencecy_matrix(data, legatura):
+    #data-noduriile
+    #legaturi-legaturiile dintre noduri
+    #returnam un o lista de liste care are ca indice nodul-1 si ca elemente in ea toate noduriile cu care acesta are legaturi
     n = len(data)
     matrix = [[0 for i in range(n)] for j in range(n)]
     for k in legatura:
