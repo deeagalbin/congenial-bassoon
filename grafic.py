@@ -23,15 +23,8 @@ def reprezentare_solutii_finale(solutie):
 
 
 legatura = reprezentare_solutii_finale(solutie_delfini)
-"""
-G = nx.Graph()
-for legaturi in legatura:
-    G.add_edge(legaturi[0], legaturi[1])
-nx.draw(G, with_labels=True, width=1,k=0.55)
-plt.show()
-"""
+
 G = nx.Graph(legatura)
-# nx.draw(g, with_labels=True,font_size=15,node_color='pink',node_size=500)
 
 nx.draw(G, with_labels=True, font_size=15,
         node_color='blue', node_size=1000)

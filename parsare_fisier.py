@@ -1,11 +1,11 @@
 def read_data():
-    #citim noduriile ca data
-    #citim matrix-ca legaturi
+    # citim noduriile ca data
+    # citim matrix-ca legaturi
     data = []
     found = 0
     matrix = []
     # fisier = input("introduceti fisierul de intrare:")
-    fisier = "delfini.txt"
+    fisier = "karate.txt"
     with open(fisier, "r") as file:
         lines = file.readlines()
         for line in lines:
@@ -26,11 +26,10 @@ def read_data():
 data, legatura = read_data()
 
 
+# print(legatura)
+# print(data)
 
 def graf(data, legaturi):
-    #data-noduriile
-    #legaturi-legaturiile dintre noduri
-    #returnam un o lista de liste care are ca indice nodul-1 si ca elemente in ea toate noduriile cu care acesta are legaturi
     graf = []
     lista_legatura = []
     for nod in data:
@@ -45,14 +44,13 @@ def graf(data, legaturi):
 
 
 def adjencecy_matrix(data, legatura):
-    #data-noduriile
-    #legaturi-legaturiile dintre noduri
-    #returnam un o lista de liste care are ca indice nodul-1 si ca elemente in ea toate noduriile cu care acesta are legaturi
     n = len(data)
     matrix = [[0 for i in range(n)] for j in range(n)]
     for k in legatura:
+        # print(str(k[0])+" "+str(k[1]))
         matrix[k[0] - 1][k[1] - 1] = 1
         matrix[k[1] - 1][k[0] - 1] = 1
+    # print(matrix[1:n])  # ca sa nu afiseze prima linie,iar noduriile sa inceapa cu 1
     return matrix
 
 

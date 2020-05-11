@@ -2,9 +2,10 @@ from parsare_fisier import *
 
 visited = []
 
-#root_graf-nodul de la care pornim
-    #graf-comunitati-graful initial
-    #visited-o lista in care punem toate noduriile deja aflate in comunitate pentru a nu ne repeta
+
+# root_graf-nodul de la care pornim
+# graf-comunitati-graful initial
+# visited-o lista in care punem toate noduriile deja aflate in comunitate pentru a nu ne repeta
 def find_community(root_graf, graf_comunitati, visited):
     community = [root_graf]
     visited.append(root_graf)
@@ -16,10 +17,10 @@ def find_community(root_graf, graf_comunitati, visited):
     return community
 
 
-#graf_comunitati=graful construit in citirea datelor care este o lista de liste avand ca si indice nodul iar ca elemente in lista toate noduriile de care acesta se leaga
-    #data=noduriile noastre
-    #cosntruim inceand de la primul nod din comunitate un grup de noduri in mici comunitati
-    #returneaza solutia initiala 
+# graf_comunitati=graful construit in citirea datelor care este o lista de liste avand ca si indice nodul iar ca elemente in lista toate noduriile de care acesta se leaga
+# data=noduriile noastre
+# cosntruim inceand de la primul nod din comunitate un grup de noduri in mici comunitati
+# returneaza solutia initiala
 def communities_graph(graf_comunitati, data):
     communities = []
     for nod in data:
@@ -28,5 +29,4 @@ def communities_graph(graf_comunitati, data):
             communities.append(community)
     return communities
 
-
-#communities = communities_graph(graf, data)
+# communities = communities_graph(graf, data)
