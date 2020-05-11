@@ -45,10 +45,8 @@ def adjencecy_matrix(data, legatura):
     n = len(data)
     matrix = [[0 for i in range(n)] for j in range(n)]
     for k in legatura:
-        # print(str(k[0])+" "+str(k[1]))
         matrix[k[0] - 1][k[1] - 1] = 1
         matrix[k[1] - 1][k[0] - 1] = 1
-    # print(matrix[1:n])  # ca sa nu afiseze prima linie,iar noduriile sa inceapa cu 1
     return matrix
 
 
