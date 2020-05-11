@@ -13,27 +13,24 @@ graf = graf(data, legaturi)
 # Input: max_iteratii- nr. max de iteratii, temp- temp initiala, alpha- rata de racire, min_temp- temp. de inghet
 # Output: o solutie mai buna decat cea initiala
 def simulated_annealing(max_iteratii, temp, alpha, min_temp):
-    solutie = communities_graph(graf, data)
-    print("com initiale sunt: " + str(solutie))
+    solutie = rafinare_solutie_initiala()
+    print("Initial: " + str(solutie))
     print("Modularity: " + str(eval_solutie(solutie)))
-    average = eval_solutie(solutie)
-    nr_parcurgeri = 1
+    temp = temp_init
     while temp > min_temp:
-        for k in range(0, max_iteratii):
+        for k in range(max_iteratii):
+            modularity_solution = eval_solutie(solutie)
             copie_solutie = solutie
             vecin = generare_vecin(copie_solutie)
-            # average += eval_solutie(vecin)
-            # nr_parcurgeri += 1
-            delta = eval_solutie(vecin) - eval_solutie(solutie)
+            modularity_vecin = eval_solutie(vecin)
+            delta = modularity_vecin - modularity_solution
             if delta > 0:
                 solutie = vecin
-            elif random.random() < math.exp(delta / temp):
-                solutie = vecin
-        temp = alpha * temp
-        average += eval_solutie(solutie)
-        nr_parcurgeri += 1
-    average_total = average / nr_parcurgeri
-    print(average_total)
+            else:
+                random_nr = random.random()
+                if math.exp(delta / temp) > random_nr:
+                    solutie = vecin
+        temp = temp * alpha
     return solutie, eval_solutie(solutie)
 
 
