@@ -1,6 +1,8 @@
 from parsare_fisier import *
 
-
+#Calculeaza gradului unui nod
+#Input: nodul
+#Output: gradul nodului (numarul muchiilor incidente care trec prin nod)
 def node_degree(nod):
     degree = 0
     for i in range(len(data)):
@@ -8,7 +10,9 @@ def node_degree(nod):
             degree += 1
     return degree
 
-
+#Valoare functiei Kronecker indica daca 2 noduri sunt in aceeasi comunitate sau nu
+#Input: lista de comunitati, doua noduri (i si j)
+#Output: False - nodurile nu sunt in aceeasi comunitate; True - nodurile sunt in aceeasi comunitate
 def Kronecker_function(comunitati, node_i, node_j):
     community_i = None
     community_j = None
@@ -23,8 +27,9 @@ def Kronecker_function(comunitati, node_i, node_j):
     return ok
 
 
-#The modularity can be either positive or negative,
-# with positive values indicating the possible presence of community structure.
+#Formula de calul a modularitatii - Formula (10) din art. de referinta
+#Input: comunitatile
+#Outpu: valoara modularitatii
 def eval_solutie(comunitati):
     modularity = 0
     double_edges = 2*len(legatura)
